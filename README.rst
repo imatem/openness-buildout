@@ -1,28 +1,26 @@
-===============================
-Using the Simple Plone Buildout
-===============================
- 
-`Windows users, click this link to get started <#using-windows>`_
+======
+TraTra
+======
 
 Get started by cloning this repository
 
 .. code:: sh
 
-   $ git clone https://github.com/plone/simple-plone-buildout
+   $ git clone https://github.com/imatem/tratra-buildout.git
 
-First, copy the ``buildout.cfg_tmpl`` into the buildout root. The 
+First, copy the ``buildout.cfg_tmpl`` into the buildout root. The
 ``profiles/testing.cfg`` profile is active by default, but you can use any of
 the others. See descriptions below.
 
 .. code:: sh
 
-    $ cd simple-plone-buildout
+    $ cd tratra-buildout
     $ cp profiles/buildout.cfg.tmpl buildout.cfg
 
 Then you need to run::
 
  $ virtualenv env
- 
+
 This will create an env directory with a virtual environment. You should then
 install the versions of ``zc.buildout`` and ``setuptools`` you need
 
@@ -36,15 +34,6 @@ To create an instance, run
 
    $ env/bin/buildout
 
-Do not be alarmed if you see the following
-
-.. code:: python
-
-   SyntaxError: 'return' outside function
-
-**Ignore** ``SyntaxErrors`` that scroll by while you enjoy your coffee. It's just
-a Zope Script (Python) thing.
-
 This will download Plone's eggs and products for you, as well as other 
 dependencies, create a new Zope 2 installation, and create a new Zope instance
 configured with these products.
@@ -53,21 +42,8 @@ You can start your Zope instance by running
 
 .. code:: sh
 
+   $ bin/zeoserver start
    $ bin/instance fg
- 
-or, to run in background mode
-
-.. code:: sh
-
-   $ bin/instance start
-
-Enjoy!
-------
-
-Navigate your browser to `<http://localhost:8080>`_
-
-The initial ZMI user is **admin** with **admin** as the password.
- 
 
 Working with buildout.cfg
 -------------------------
@@ -143,24 +119,3 @@ prod.cfg
   Zope cluster, tune the number of threads being used, bump up zeo cache
   sizes, set up pound, squid, nginx, etc.  This will be the config used to run
   the site in production mode.
-
-=============
-Using Windows
-=============
-
-Download and double click install the following installers.
-
-* `Python 2.7.12 x86-64 MSI Installer <https://www.python.org/downloads/release/python-2712>`_
-
-  * When installing, ensure the option for "Add python.exe to Path" is active
-  * After installing, make sure ``python.exe`` is in your Path
-
-* `Microsoft Visual C++ Compiler for Python 2.7 <http://aka.ms/vcpython27>`_
-* `Git for Windows <https://git-for-windows.github.io>`_
-* Open PowerShell and install ``virtualenv``::
-
-    PS C:\Users\foo> pip install virtualenv
-
-You are now ready to follow the instructions at the top of this file, but keep
-in mind that your ``virtualenv`` will not have a ``bin`` directory. It will be
-called ``Scripts`` so adjust the commands accordingly.

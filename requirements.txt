@@ -1,3 +1,2 @@
 setuptools==21.0.0
 zc.buildout==2.5.2
-pypiwin32==219; sys_platform == 'win32'
