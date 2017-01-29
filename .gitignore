@@ -2,6 +2,7 @@
 develop-eggs
 fake-eggs
 eggs
+env
 bin
 var
 parts
